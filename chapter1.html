@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第1章：影だけが写る写真</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/puzzles.js" defer></script>
+</head>
+<body data-page="chapter1">
+  <header id="site-header">
+    <h1 id="page-title">第1章：影だけが写る写真</h1>
+  </header>
+
+  <main id="content-area">
+    <section id="story-text">
+      <p>写真④には、地面に立つ影だけが写っている。影を落とすべき人物は存在しない。</p>
+      <p>撮影時刻：18:39　偏光角度：38°。影は光源の反対方向ではなく、カメラ側へ向かって立っている。</p>
+    </section>
+
+    <section id="evidence-area">
+      <div class="evidence-item">
+        <h2>証拠1-A：写真④の説明</h2>
+        <p>人物なき影。地面にのみ輪郭が残る。</p>
+      </div>
+      <div class="evidence-item">
+        <h2>証拠1-B：撮影ログ</h2>
+        <p>撮影時刻：18:39 / カメラ位置：西斜面 / 光源：西日。</p>
+      </div>
+      <div class="evidence-item">
+        <h2>証拠1-C：光源位置図</h2>
+        <p>光源はカメラの背後に位置しているはずだが、影はカメラ側へ伸びている。</p>
+      </div>
+    </section>
+
+    <section id="puzzle-area">
+      <p>下のアイコンをドラッグし、光源と影を重ねて“矛盾”を可視化せよ。</p>
+      <div id="drag-area">
+        <div id="drag-light" class="drag-icon">光源</div>
+        <div id="drag-shadow" class="drag-icon">影</div>
+        <div id="drag-camera" class="drag-icon">カメラ</div>
+      </div>
+      <p>ドラッグ後、画面の余白をクリックすると判定が行われる。</p>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <small>第1章クリアで第2章が解放されます。</small>
+  </footer>
+
+  <div id="shadow-layer"></div>
+  <div id="noise-layer"></div>
+  <audio id="sfx-layer"></audio>
+</body>
+</html>
