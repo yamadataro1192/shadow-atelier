@@ -23,20 +23,38 @@ function generateShadowShape(values) {
 // ===== 影角度再現 =====
 function replayAngle(angle) {
     const result = document.getElementById("angleResult");
+    if (!angle) {
+        alert("角度を入力してください。");
+        return;
+    }
     const val = (angle * 0.03).toFixed(2);
     result.innerText = `影のずれ：${val} units`;
 }
 
-// ===== 影変位シミュレーション（ロック解除判定含む） =====
+// ===== 影変位シミュレーション（入力チェック＋ロック解除判定含む） =====
 function simulateDisplacement(values, angle, time) {
     const result = document.getElementById("dispResult");
 
-    // 時刻を HHMM → 時間単位に変換
+    // --- 入力チェック ---
+    if (!values || values.length === 0 || values[0].trim() === "") {
+        alert("影形ログを入力してください。");
+        return;
+    }
+    if (!angle) {
+        alert("角度を入力してください。");
+        return;
+    }
+    if (!time) {
+        alert("時刻を入力してください。");
+        return;
+    }
+
+    // --- 時刻を HHMM → 時間単位に変換 ---
     const hours = Math.floor(time / 100);
     const minutes = time % 100;
     const timeInHours = hours + minutes / 60;
 
-    // 物理的に自然な計算式（3.08 が出る）
+    // --- 計算式（3.08 が出る） ---
     const final = values[values.length - 1] + angle * 0.02 + timeInHours * 0.01;
 
     result.style.opacity = 0;
@@ -45,47 +63,11 @@ function simulateDisplacement(values, angle, time) {
         result.style.opacity = 1;
     }, 400);
 
-    // ===== 二重条件判定 =====
+    // --- 二重条件判定 ---
     const correctValues = ["1.2", "1.4", "1.4", "1.7", "2.1"];
     const isValuesCorrect = JSON.stringify(values.map(v => v.trim())) === JSON.stringify(correctValues);
     const isAngleCorrect = angle === 37;
     const isTimeCorrect = time === 2341;
 
-    // ===== ロック解除条件 =====
-    if (final >= 3.0 && isValuesCorrect && isAngleCorrect && isTimeCorrect) {
-
-        // 観測者ログリンクを解放
-        document.getElementById("observerLogLink").classList.remove("locked");
-
-        // 赤黒脈動演出
-        document.body.classList.add("observer-bg");
-
-        // 低音演出
-        playLowTone();
-
-        // ロック解除通知
-        alert("観測者ログが解放されました。");
-    }
-}
-
-// ===== 低音演出 =====
-function playLowTone() {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.type = "sine";
-    osc.frequency.value = 48; // 低音
-    gain.gain.value = 0.25;
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 1.2);
-}
-
-// ===== タイトルへ戻る =====
-function goHome() {
-    window.location.href = "../index.html";
-}
+    // --- ロック解除条件 ---
+    if (final >= 3.0 && is
