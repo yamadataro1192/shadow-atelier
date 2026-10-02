@@ -70,4 +70,32 @@ function simulateDisplacement(values, angle, time) {
     const isTimeCorrect = time === 2341;
 
     // --- ロック解除条件 ---
-    if (final >= 3.0 && is
+    if (final >= 3.0 && isValuesCorrect && isAngleCorrect && isTimeCorrect) {
+        document.getElementById("observerLogLink").classList.remove("locked");
+        document.body.classList.add("observer-bg");
+        playLowTone();
+        alert("観測者ログが解放されました。");
+    }
+}
+
+// ===== 低音演出 =====
+function playLowTone() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.value = 48; // 低音
+    gain.gain.value = 0.25;
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 1.2);
+}
+
+// ===== タイトルへ戻る =====
+function goHome() {
+    window.location.href = "../index.html";
+}
