@@ -35,3 +35,9 @@ function simulateDisplacement(values, angle, time) {
         result.style.opacity = 1;
     }, 400);
 }
+
+function playLowTone() {
+    // 実際の音は任意実装。ここではダミー。
+    // Web Audio API で 20〜40Hz の短いトーンを鳴らす想定。
+    // 物語上は「感じる音」として扱う。
+}

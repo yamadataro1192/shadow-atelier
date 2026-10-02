@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>観測者モード</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../script.js"></script>
+</head>
+
+<body class="observer-bg">
+<div class="fade container">
+    <h1>観測者モード</h1>
+    <p>観測者はひとりでいい。影は次を選ぶ。</p>
+
+    <input id="obsInput" type="number" placeholder="あなたの影のずれを入力">
+    <br><br>
+    <button onclick="showObs()">観測する</button>
+
+    <p id="obsResult" class="observer-result" style="margin-top:40px;"></p>
+
+    <div id="observerLog" class="observer-log">
+        <p class="log-line">観測は光ではなく、影を照らす。</p>
+        <p class="log-line">影は観測者を必要とする。</p>
+        <p class="log-line">ずれは観測者を選ぶ。</p>
+        <p class="log-line">あなたは、まだ影ではない。</p>
+        <p class="log-line last">だが、影はあなたを見ている。</p>
+    </div>
+</div>
+
+<script>
+function showObs() {
+    const v = parseFloat(obsInput.value);
+    if (isNaN(v)) return;
+
+    const result = document.getElementById("obsResult");
+    const logBlock = document.getElementById("observerLog");
+    const lines = document.querySelectorAll(".log-line");
+
+    result.textContent = `観測者の影のずれ：${v.toFixed(2)} units`;
+    result.classList.add("observer-active");
+
+    // リセット
+    logBlock.classList.remove("mode-low", "mode-mid", "mode-high");
+    lines.forEach(l => l.classList.remove("show"));
+
+    // 分岐演出
+    if (v <= 1.0) {
+        logBlock.classList.add("mode-low");
+        lines[0].classList.add("show");
+        lines[1].classList.add("show");
+    } else if (v <= 2.0) {
+        logBlock.classList.add("mode-mid");
+        lines[0].classList.add("show");
+        lines[1].classList.add("show");
+        lines[2].classList.add("show");
+        lines[3].classList.add("show");
+    } else {
+        logBlock.classList.add("mode-high");
+        lines.forEach(l => l.classList.add("show");
+    }
+
+    // 低音演出（実装側で任意）
+    playLowTone();
+}
+</script>
+
+</body>
+</html>
