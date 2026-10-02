@@ -12,8 +12,8 @@ function generateShadowShape(values) {
 
     values.forEach((v, i) => {
         setTimeout(() => {
-            x += v * 22;
-            y -= v * 12;
+            x += Number(v) * 22;
+            y -= Number(v) * 12;
             ctx.lineTo(x, y);
             ctx.stroke();
         }, i * 180);
@@ -31,7 +31,7 @@ function replayAngle(angle) {
     result.innerText = `影のずれ：${val} units`;
 }
 
-// ===== 影変位シミュレーション（入力チェック＋ロック解除判定含む） =====
+// ===== 影変位シミュレーション（完全修正版） =====
 function simulateDisplacement(values, angle, time) {
     const result = document.getElementById("dispResult");
 
@@ -55,7 +55,8 @@ function simulateDisplacement(values, angle, time) {
     const timeInHours = hours + minutes / 60;
 
     // --- 計算式（3.08 が出る） ---
-    const final = values[values.length - 1] + angle * 0.02 + timeInHours * 0.01;
+    const lastValue = Number(values[values.length - 1]); // ← 数値化
+    const final = lastValue + angle * 0.02 + timeInHours * 0.01;
 
     result.style.opacity = 0;
     setTimeout(() => {
