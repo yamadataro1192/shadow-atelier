@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>影形ログ入力</title>
-<link rel="stylesheet" href="../style.css">
-<script src="../script.js"></script>
+    <meta charset="UTF-8">
+    <title>影形ログ入力</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
 </head>
 
 <body>
-<div class="fade container">
-    <h1>影形ログ入力</h1>
-    <p>ずれは形を変える。形は観測者を変える。</p>
+<div class="container fade">
 
-    <textarea id="logInput" rows="6" placeholder="影形ログを入力"></textarea>
+    <h1 class="title">影形ログ入力</h1>
+    <p>影形ログを入力してください（5行）。</p>
+
+    <textarea id="values" rows="5" placeholder="1.2&#10;1.4&#10;1.4&#10;1.7&#10;2.1"></textarea>
+
     <br><br>
-    <button onclick="processLog()">形を生成する</button>
+    <a href="angle_replay.html">影角度再現へ進む</a>
 
-    <canvas id="shadowCanvas" width="700" height="350" style="margin-top:60px;"></canvas>
+    <br><br>
+    <button onclick="goHome()">タイトルへ戻る</button>
+
 </div>
-
-<script>
-function processLog() {
-    const raw = document.getElementById("logInput").value.trim().split("\n");
-    const values = raw.map(v => parseFloat(v));
-    generateShadowShape(values);
-}
-</script>
-
 </body>
 </html>

@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>観測者モード</title>
-<link rel="stylesheet" href="../style.css">
-<script src="../script.js"></script>
+    <meta charset="UTF-8">
+    <title>観測者モード</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
 </head>
 
-<body>
-<div class="container">
-    <h1>観測者モード</h1>
-    <p>観測者はひとりでいい。影は次を選ぶ。</p>
+<body class="observer-bg">
+<div class="container fade">
 
-    <input id="obsInput" type="number" placeholder="あなたの影のずれを入力">
+    <h1 class="title">観測者モード</h1>
+    <p>あなた自身の影のずれを入力してください。</p>
+
+    <input id="observerValue" type="number" placeholder="影のずれ（例：2.3）">
+
+    <button onclick="
+        const v = Number(document.getElementById('observerValue').value);
+        document.getElementById('observerResult').innerText =
+            `観測者の影のずれ：${v.toFixed(2)} units`;
+        document.getElementById('observerResult').classList.add('observer-active');
+    ">影のずれを送信する</button>
+
+    <p id="observerResult" class="observer-result"></p>
+
     <br><br>
-    <button onclick="showObs()">観測する</button>
+    <button onclick="goHome()">タイトルへ戻る</button>
 
-    <p id="obsResult" style="margin-top:40px;"></p>
 </div>
-
-<script>
-function showObs() {
-    const v = parseFloat(obsInput.value);
-    document.getElementById("obsResult").innerText =
-        `観測者の影のずれ：${v.toFixed(2)} units`;
-}
-</script>
-
 </body>
 </html>

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>影変位シミュレーション</title>
-<link rel="stylesheet" href="../style.css">
-<script src="../script.js"></script>
+    <meta charset="UTF-8">
+    <title>影変位シミュレーション</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
 </head>
 
 <body>
-<div class="fade container">
-    <h1>影変位シミュレーション</h1>
-    <p>ずれは増える。時間は影を連れていく。</p>
+<div class="container fade">
 
-    <textarea id="dispLog" rows="6" placeholder="影形ログ"></textarea>
-    <br><br>
-    <input id="dispAngle" type="number" placeholder="角度（°）">
-    <br><br>
-    <input id="dispTime" type="number" placeholder="時刻（任意の数値）">
-    <br><br>
+    <h1 class="title">影変位シミュレーション</h1>
+    <p>影形ログ・角度・時刻を入力してください。</p>
 
-    <button onclick="runSim()">変位を再現する</button>
+    <textarea id="values" rows="5" placeholder="1.2&#10;1.4&#10;1.4&#10;1.7&#10;2.1"></textarea>
+    <input id="angle" type="number" placeholder="角度（例：37）">
+    <input id="time" type="number" placeholder="時刻（例：2341）">
 
-    <p id="dispResult" style="margin-top:40px; transition: opacity 0.6s;"></p>
+    <button onclick="
+        simulateDisplacement(
+            document.getElementById('values').value.split('\n'),
+            Number(document.getElementById('angle').value),
+            Number(document.getElementById('time').value)
+        )
+    ">変位を再現する</button>
+
+    <p id="dispResult" class="observer-result"></p>
+
+    <br><br>
+    <a id="observerLogLink" class="locked" href="observer_log.html">観測者ログへ進む</a>
+
+    <br><br>
+    <button onclick="goHome()">タイトルへ戻る</button>
+
 </div>
-
-<script>
-function runSim() {
-    const raw = dispLog.value.trim().split("\n");
-    const values = raw.map(v => parseFloat(v));
-    simulateDisplacement(values, parseFloat(dispAngle.value), parseFloat(dispTime.value));
-}
-</script>
-
 </body>
 </html>

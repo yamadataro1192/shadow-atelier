@@ -175,3 +175,27 @@ button:hover {
     50%  { opacity: 1; }
     100% { opacity: 0.4; }
 }
+
+/* 赤黒脈動（ロック解除時） */
+.observer-bg {
+    animation: observerPulse 6s infinite;
+}
+
+@keyframes observerPulse {
+    0%   { background: #0A0A0A; }
+    50%  { background: #150000; }
+    100% { background: #0A0A0A; }
+}
+
+/* ロック解除後の結果表示 */
+.observer-result {
+    font-size: 22px;
+    opacity: 0;
+    transition: opacity 1.2s, color 1.2s;
+}
+
+.observer-active {
+    opacity: 1;
+    color: #8A2F2F;
+}
+
