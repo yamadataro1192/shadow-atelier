@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>影角度再現</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../script.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>影角度再現</h1>
+    <p>角度は嘘をつかない。ずれは嘘をつく。</p>
+
+    <input id="angleInput" type="number" placeholder="角度を入力（°）">
+    <br><br>
+    <button onclick="replayAngle(parseFloat(angleInput.value))">ずれを再現する</button>
+
+    <p id="angleResult" style="margin-top:40px;"></p>
+</div>
+</body>
+</html>

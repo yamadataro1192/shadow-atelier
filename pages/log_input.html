@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>影形ログ入力</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../script.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>影形ログ入力</h1>
+    <p>ずれは形を変える。形は観測者を変える。</p>
+
+    <textarea id="logInput" rows="6" style="width:60%;"></textarea>
+    <br><br>
+    <button onclick="processLog()">形を生成する</button>
+
+    <canvas id="shadowCanvas" width="600" height="300" style="margin-top:40px;"></canvas>
+</div>
+
+<script>
+function processLog() {
+    const raw = document.getElementById("logInput").value.trim().split("\n");
+    const values = raw.map(v => parseFloat(v));
+    generateShadowShape(values);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>影変位シミュレーション</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../script.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>影変位シミュレーション</h1>
+    <p>ずれは増える。時間は影を連れていく。</p>
+
+    <textarea id="dispLog" rows="6" style="width:60%;" placeholder="影形ログ"></textarea>
+    <br><br>
+    <input id="dispAngle" type="number" placeholder="角度（°）">
+    <br><br>
+    <input id="dispTime" type="number" placeholder="時刻（任意の数値）">
+    <br><br>
+
+    <button onclick="runSim()">変位を再現する</button>
+
+    <p id="dispResult" style="margin-top:40px;"></p>
+</div>
+
+<script>
+function runSim() {
+    const raw = dispLog.value.trim().split("\n");
+    const values = raw.map(v => parseFloat(v));
+    simulateDisplacement(values, parseFloat(dispAngle.value), parseFloat(dispTime.value));
+}
+</script>
+
+</body>
+</html>

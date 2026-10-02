@@ -1,0 +1,44 @@
+body {
+    background: #111;
+    color: #eee;
+    font-family: "Yu Mincho", serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 80px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.7;
+    margin-bottom: 60px;
+}
+
+.menu a {
+    display: block;
+    margin: 20px 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #eee;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+.locked {
+    color: #555 !important;
+    pointer-events: none;
+}
