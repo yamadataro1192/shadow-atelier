@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第3章：蛍光絵具 No.07 の媒介性</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/puzzles.js" defer></script>
+</head>
+<body data-page="chapter3">
+  <header id="site-header">
+    <h1 id="page-title">第3章：蛍光絵具 No.07 の媒介性</h1>
+  </header>
+
+  <main id="content-area">
+    <section id="story-text">
+      <p>絵具 No.07 は偏光角度 38°付近で強く反射する。写真④・日記C・CAM-02欠損領域から同じ成分が検出された。</p>
+    </section>
+
+    <section id="evidence-area">
+      <div class="evidence-item">
+        <h2>証拠3-A：成分表</h2>
+        <p>蛍光成分が偏光角度に依存して強く反応する。</p>
+      </div>
+      <div class="evidence-item">
+        <h2>証拠3-B：反射グラフ</h2>
+        <div id="graph-placeholder">ピーク付近で画面が青白く光る演出。</div>
+      </div>
+      <div class="evidence-item">
+        <h2>証拠3-C：成分一致表</h2>
+        <p>写真④・日記C・CAM-02欠損領域に同一成分が検出されている。</p>
+      </div>
+    </section>
+
+    <section id="puzzle-area">
+      <p>ページを下までスクロールし、グラフのピーク値を確認せよ。</p>
+      <p>ページタイトル「蛍光絵具 No.07」をクリックすると凡例が変化する。</p>
+      <p>ピーク値を入力し、画面の余白をクリックして判定を行う。</p>
+      <input type="text" id="chapter3-input" placeholder="角度を入力（例：38）">
+      <button id="chapter3-submit">仮判定</button>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <small>第3章クリアで第4章が解放されます。</small>
+  </footer>
+
+  <div id="shadow-layer"></div>
+  <div id="noise-layer"></div>
+  <audio id="sfx-layer"></audio>
+</body>
+</html>
