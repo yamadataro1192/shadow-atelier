@@ -1,4 +1,117 @@
-/* 観測者モード背景脈動 */
+/* ===== 全体 ===== */
+body {
+    background: #0A0A0A;
+    color: #EDEDED;
+    font-family: "Yu Mincho", serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* フェード演出 */
+.fade {
+    animation: fadeIn 1.8s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ===== レイアウト ===== */
+.container {
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+/* ===== タイトル ===== */
+.title {
+    font-size: 52px;
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.65;
+    margin-bottom: 80px;
+}
+
+/* ===== メニュー ===== */
+.menu a {
+    display: block;
+    margin: 25px 0;
+    font-size: 22px;
+    text-decoration: none;
+    color: #EDEDED;
+    opacity: 0.75;
+    transition: opacity 0.4s, letter-spacing 0.4s;
+}
+
+.menu a:hover {
+    opacity: 1;
+    letter-spacing: 0.05em;
+}
+
+.locked {
+    color: #444 !important;
+    pointer-events: none;
+}
+
+/* ===== 入力欄 ===== */
+input, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+    color: #EDEDED;
+    font-size: 18px;
+    width: 60%;
+    padding: 10px;
+    outline: none;
+    transition: border-color 0.4s, opacity 0.4s;
+}
+
+input:focus, textarea:focus {
+    border-bottom: 1px solid #FFFFFF;
+    opacity: 1;
+}
+
+/* ===== ボタン ===== */
+button {
+    background: #0A0A0A;
+    color: #EDEDED;
+    border: 1px solid #EDEDED;
+    padding: 12px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.4s, color 0.4s;
+}
+
+button:hover {
+    background: #EDEDED;
+    color: #0A0A0A;
+}
+
+/* ===== 観測者ログ ===== */
+.log {
+    font-size: 22px;
+    margin: 40px 0;
+    opacity: 0;
+    animation: logFade 1.2s forwards;
+}
+
+.log:nth-child(1) { animation-delay: 0.5s; }
+.log:nth-child(2) { animation-delay: 1.3s; }
+.log:nth-child(3) { animation-delay: 2.1s; }
+.log:nth-child(4) { animation-delay: 2.9s; }
+.log:nth-child(5) { animation-delay: 3.7s; color: #8A2F2F; }
+
+@keyframes logFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ===== 観測者モード背景脈動 ===== */
 .observer-bg {
     animation: observerPulse 6s infinite;
 }
@@ -9,7 +122,7 @@
     100% { background: #0A0A0A; }
 }
 
-/* 観測者結果表示 */
+/* ===== 観測者結果表示 ===== */
 .observer-result {
     font-size: 22px;
     opacity: 0;
@@ -21,7 +134,7 @@
     color: #8A2F2F;
 }
 
-/* 観測者ログブロック */
+/* ===== 観測者ログブロック ===== */
 .observer-log {
     margin-top: 60px;
 }

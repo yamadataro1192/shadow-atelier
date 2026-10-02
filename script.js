@@ -27,7 +27,14 @@ function replayAngle(angle) {
 
 function simulateDisplacement(values, angle, time) {
     const result = document.getElementById("dispResult");
-    const final = values[values.length - 1] + angle * 0.02 + time * 0.01;
+
+    // 時刻を「HHMM」形式から時間単位に変換
+    const hours = Math.floor(time / 100);
+    const minutes = time % 100;
+    const timeInHours = hours + minutes / 60;
+
+    // 正しい変位計算式（物語設定に合わせた調整）
+    const final = values[values.length - 1] + angle * 0.02 + timeInHours * 0.01;
 
     result.style.opacity = 0;
     setTimeout(() => {
@@ -36,8 +43,7 @@ function simulateDisplacement(values, angle, time) {
     }, 400);
 }
 
+// 観測者モード用（そのまま）
 function playLowTone() {
-    // 実際の音は任意実装。ここではダミー。
-    // Web Audio API で 20〜40Hz の短いトーンを鳴らす想定。
-    // 物語上は「感じる音」として扱う。
+    // Web Audio API で低音を鳴らす場合はここに実装
 }
