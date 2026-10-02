@@ -8,11 +8,11 @@
 </head>
 
 <body>
-<div class="container">
+<div class="fade container">
     <h1>影変位シミュレーション</h1>
     <p>ずれは増える。時間は影を連れていく。</p>
 
-    <textarea id="dispLog" rows="6" style="width:60%;" placeholder="影形ログ"></textarea>
+    <textarea id="dispLog" rows="6" placeholder="影形ログ"></textarea>
     <br><br>
     <input id="dispAngle" type="number" placeholder="角度（°）">
     <br><br>
@@ -21,7 +21,7 @@
 
     <button onclick="runSim()">変位を再現する</button>
 
-    <p id="dispResult" style="margin-top:40px;"></p>
+    <p id="dispResult" style="margin-top:40px; transition: opacity 0.6s;"></p>
 </div>
 
 <script>
