@@ -8,9 +8,7 @@ body.gallery {
 }
 
 body.shadow {
-    margin: 0;
-    font-family: "Noto Serif JP", serif;
-    background: url("../img/shadow_room.jpg") center/cover no-repeat fixed;
+    background: url("/shadow-atelier/img/shadow_room.jpg") center/cover no-repeat fixed;
     color: #ddd;
 }
 
