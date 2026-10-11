@@ -3,6 +3,8 @@ body {
     font-family: "Noto Serif JP", serif;
     background: url("../img/gallery_wall.jpg") center/cover no-repeat fixed;
     color: #222;
+    position: relative;
+    z-index: 1;
 }
 
 /* Hero Section */
@@ -87,3 +89,58 @@ footer {
     opacity: 1;
     pointer-events: auto;
 }
+
+/* 背景の光の揺らぎ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.25), transparent 70%);
+    animation: lightPulse 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 光のゆらぎアニメーション */
+@keyframes lightPulse {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.45;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+/* 観測者モード時の光の揺らぎ（詩的演出） */
+body.observer-mode::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,200,200,0.3), transparent 80%);
+    animation: lightPulseObserver 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 観測者モード専用の脈動 */
+@keyframes lightPulseObserver {
+    0% {
+        opacity: 0.25;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.55;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 0.25;
+        transform: scale(1);
+    }
+}
+

@@ -49,8 +49,11 @@ if (shadowTag) {
 // 遷移演出
 function triggerShadowTransition() {
     const overlay = document.getElementById("transitionOverlay");
-    if (!overlay) return;
     overlay.classList.add("show");
+
+    // ★ 観測者モードの光の揺らぎを発動
+    document.body.classList.add("observer-mode");
+
     playLowTone();
 }
 
