@@ -34,6 +34,26 @@ body.shadow .subtitle {
     margin-bottom: 40px;
 }
 
+body.shadow .menu {
+    display: flex;
+    flex-direction: column; /* 縦並び */
+    align-items: center;    /* 横方向中央 */
+    justify-content: center; /* 縦方向中央 */
+    gap: 16px;              /* 各項目の間隔 */
+    margin-top: 40px;
+}
+
+body.shadow .menu a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+body.shadow .menu a:hover {
+    color: #fff;
+}
+
 /* Hero Section */
 .hero {
     background-color: rgba(255, 255, 255, 0.7);
