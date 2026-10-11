@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>影形記録室 - Shadow Form Archive</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Takashi K. Works Archive</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-<div class="fade">
-<div class="container">
-    <h1 class="title">影形記録室</h1>
-    <p class="subtitle">影は光の結果ではない。私は“ずれ”を記録する。</p>
 
-    <nav class="menu">
-        <a href="pages/log_input.html">影形ログ入力</a>
-        <a href="pages/angle_replay.html">影角度再現</a>
-        <a href="pages/displacement.html">影変位シミュレーション</a>
-        <a class="locked">観測者ログ（ロック）</a>
-        <a class="locked">観測者モード（ロック）</a>
-    </nav>
+<div class="container">
+
+    <header>
+        <h1>Takashi K. Works Archive</h1>
+        <nav>
+            <a href="#">Works</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <h2>Search</h2>
+        <input id="workSearch" type="text" placeholder="作品番号を入力">
+
+        <h2>Tags</h2>
+        <span class="tag" data-tag="shadow">影</span>
+        <span class="tag" data-tag="light">光</span>
+        <span class="tag" data-tag="record">記録</span>
+    </aside>
+
+    <main class="works-grid">
+        <div class="work-card" data-key="shadow-core">
+            <img src="img/work_2341.jpg" alt="No. 23-41 / Shadow Study">
+            <h3>No. 23-41 / Shadow Study</h3>
+            <p>Oil on Canvas, 2023</p>
+            <span class="tag">影</span>
+        </div>
+        <!-- 他の作品カードを追加してよい -->
+    </main>
+
 </div>
+
+<div id="transitionOverlay" class="overlay hidden">
+    <p>観測は影から始まる。</p>
+    <a href="shadow/logroom.html" class="enter-logroom">影形記録室へ進む</a>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #F5F5F5;
+    color: #222;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #444;
+}
+
+.sidebar {
+    float: left;
+    width: 220px;
+}
+
+.works-grid {
+    margin-left: 260px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.work-card {
+    background: #FFF;
+    border: 1px solid #DDD;
+    padding: 10px;
+}
+
+.work-card img {
+    width: 100%;
+    display: block;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+/* 遷移オーバーレイ */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #0A0A0A;
+    color: #EDEDED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.enter-logroom {
+    margin-top: 20px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+/* 記録室用 */
+body.logroom {
+    background: #0A0A0A;
+    color: #EDEDED;
+}
+
+.title {
+    margin-bottom: 20px;
+}
