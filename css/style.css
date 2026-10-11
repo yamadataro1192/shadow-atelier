@@ -167,3 +167,10 @@ body.observer-mode::before {
     }
 }
 
+.locked {
+    opacity: 0.4;
+    pointer-events: none; /* ← クリック無効化 */
+    cursor: default;
+}
+
+
