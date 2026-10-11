@@ -12,6 +12,24 @@ body.shadow {
     color: #ddd;
 }
 
+body.shadow .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    text-align: center;
+    display: block;
+}
+
+body.shadow .title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+body.shadow .subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
 /* Hero Section */
 .hero {
     background-color: rgba(255, 255, 255, 0.7);
