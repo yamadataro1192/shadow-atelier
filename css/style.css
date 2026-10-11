@@ -1,45 +1,58 @@
 body {
     margin: 0;
-    font-family: system-ui, sans-serif;
-    background: #F5F5F5;
+    font-family: "Noto Serif JP", serif;
+    background: #f8f8f8;
     color: #222;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+/* Hero Section */
+.hero {
+    background: url("../img/gallery_wall.jpg") center/cover no-repeat;
+    text-align: center;
+    padding: 120px 20px 80px;
+    color: #111;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 20px;
+.hero h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
-nav a {
-    margin-left: 12px;
-    text-decoration: none;
+.subtitle {
+    font-size: 18px;
     color: #444;
 }
 
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+}
+
 .sidebar {
-    float: left;
     width: 220px;
+    margin-right: 40px;
 }
 
 .works-grid {
-    margin-left: 260px;
+    flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
 }
 
 .work-card {
-    background: #FFF;
-    border: 1px solid #DDD;
-    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-4px);
 }
 
 .work-card img {
@@ -47,15 +60,14 @@ nav a {
     display: block;
 }
 
-.tag {
-    display: inline-block;
-    margin-top: 6px;
-    font-size: 12px;
+footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 14px;
     color: #555;
-    cursor: pointer;
 }
 
-/* 遷移オーバーレイ */
+/* Overlay (hidden transition) */
 .overlay {
     position: fixed;
     inset: 0;
@@ -73,25 +85,4 @@ nav a {
 .overlay.show {
     opacity: 1;
     pointer-events: auto;
-}
-
-.overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.enter-logroom {
-    margin-top: 20px;
-    font-size: 14px;
-    text-decoration: underline;
-}
-
-/* 記録室用 */
-body.logroom {
-    background: #0A0A0A;
-    color: #EDEDED;
-}
-
-.title {
-    margin-bottom: 20px;
 }
