@@ -100,3 +100,7 @@ function playLowTone() {
 function goHome() {
     window.location.href = "../index.html";
 }
+
+function goLogroom() {
+    window.location.href = "../shadow/logroom.html";
+}
